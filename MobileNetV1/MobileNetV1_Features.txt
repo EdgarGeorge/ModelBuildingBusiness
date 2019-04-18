@@ -1,0 +1,48 @@
+实例情景二：深度卷积神经网络
+
+简单应用情景介绍：
+	深度卷积神经网络的发展带来的是计算机视觉的新发展，同时为了达到更高的准确性需要构建
+	更深更复杂的网络模型。但移动设备不一定能够提供这些深度网络在尺度和速度上的要求。
+	MobileNet为解决此类问题带来了新的解决方案。
+
+
+MobileNet基本概况（创新点）：
+	一、基于流线型架构（streamined）
+
+	二、使用深度可分离卷积（depthwise separable convolutions，Xception变体结构）构建网络
+	       深度可分离卷积：把标准卷积分解成深度卷积(depthwise convolution)和逐点卷积(pointw-
+	       ise convolution)。这么做的好处是可以大幅度降低参数量和计算量。
+
+	三、加入两个全局超参数，有效地在延迟与准确率之间折中。这使得我们可以依据约束条件选
+	      择合适大小的模型
+	      论文的验证：在多个参数量下做了广泛的实验，在ImageNet分类任务上与其他模型对比，
+	      验证了模型在其他领域如对象检测、人脸识别、大规模地理定位等领域使用的有效性。
+
+	四、使用蒸馏（distillation）法训练网络，可以更加方便快捷的训练大型网络。
+
+
+
+
+
+
+
+
+
+
+
+
+小型高效神经网络的建立方法：
+	一、压缩预训练模型。
+	      减小、分解或压缩预训练网络，例如量化压缩(product quantization)、
+	      哈希(hashing )、剪枝(pruning)、矢量编码( vector quantization)和霍夫曼编码(Huffman 
+	      coding)等；此外还有各种分解因子(various factorizations )用来加速预训练网络；还有一
+	      种训练小型网络的方法叫蒸馏(distillation )，使用大型网络指导小型网络，这是对论文的方
+	      法做了一个补充。
+
+	二、直接训练小型模型。 例如：
+	      Flattened networks利用完全的因式分解的卷积网络构建模型，显示出完全分解网络的潜力；
+	      Factorized Networks引入了类似的分解卷积以及拓扑连接的使用；
+	      Xception network显示了如何扩展深度可分离卷积到Inception V3 networks；
+	      Squeezenet 使用一个bottleneck用于构建小型网络。
+
+

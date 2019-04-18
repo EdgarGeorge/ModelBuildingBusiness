@@ -1,0 +1,171 @@
+
+tensorflow与通常的编程思维不同，先要构建训练图，到session里面才执行，输入是tf.variable()
+tensorflow数据与标签提现到训练过程中  损失函数是怎样体现的 
+标签的处理
+
+精简的构建大型网络的tensorflow衍生库tf.slim
+
+tf.slim的scope机制
+scope更像是一个描述模型层级结构的东西，概括模型架构，很方便重复（repeat）和堆叠（stack）
+
+tf.slim的指标计算（metric evaluation）机制
+
+
+slim官方的例程里提供了专门用来下载数据集并将其转化为训练用的格式的python脚本，并且转化完成后还有一个label.txt文件
+所以说官方的文档还是很有用的，关于数据集的转化及导入都有很详细的例程
+
+
+
+
+
+【网络模型构建步骤】
+
+（一）输入的定义   
+（二）模型的构建     
+（三）损失的定义与优化器的选择     
+（四）训练循环的定义（计算损失并执行优化过程）
+
+
+
+
+【slim中的深度学习模型训练测试步骤】
+
+ （一）准备数据集
+           将数据集下载到文件夹，并将其转化为TFRecord 格式保存
+           构建自己的数据集，包括训练集和验证集
+ （二）用已训练好的模型初始化新模型或从头开始训练新模型
+ （三）评估模型的性能
+
+
+
+【slim模型库】
+
+│  BUILD
+│  download_and_convert_data.py
+│  eval_image_classifier.py
+│  export_inference_graph.py
+│  export_inference_graph_test.py
+│  file.txt
+│  README.md
+│  setup.py
+│  slim_walkthrough.ipynb
+│  train_image_classifier.py
+│  WORKSPACE
+│  __init__.py
+│  
+├─datasets
+│  │  __init__.py
+│  │  build_imagenet_data.py
+│  │  flowers.py					提供数据集中的数据
+│  │  cifar10.py
+│  │  mnist.py
+│  │  imagenet.py
+│  │  dataset_factory.py				用户自主选择需要使用的数据集，并返回可用于训练和验证的数据
+│  │  dataset_utils.py
+│  │  download_and_convert_cifar10.py		这些文件负责下载并转化为TFRecord格式
+│  │  download_and_convert_flowers.py
+│  │  download_and_convert_mnist.py
+│  │  preprocess_imagenet_validation_data.py
+│  │  process_bounding_boxes.py
+│  │  download_and_convert_imagenet.sh
+│  │  download_imagenet.sh
+│  │  imagenet_2012_validation_synset_labels.txt
+│  │  imagenet_lsvrc_2015_synsets.txt
+│  │  imagenet_metadata.txt
+│          
+├─deployment					部署多个GPU
+│      model_deploy.py
+│      model_deploy_test.py
+│      __init__.py
+│      
+├─nets						具体网络模型的定义，具体论文算法体现在这
+│  │  alexnet.py					包括训练文件和测试文件（评估文件）
+│  │  alexnet_test.py
+│  │  cifarnet.py
+│  │  cyclegan.py
+│  │  cyclegan_test.py
+│  │  dcgan.py
+│  │  dcgan_test.py
+│  │  i3d.py
+│  │  i3d_test.py
+│  │  i3d_utils.py
+│  │  inception.py
+│  │  inception_resnet_v2.py
+│  │  inception_resnet_v2_test.py
+│  │  inception_utils.py
+│  │  inception_v1.py
+│  │  inception_v1_test.py
+│  │  inception_v2.py
+│  │  inception_v2_test.py
+│  │  inception_v3.py
+│  │  inception_v3_test.py
+│  │  inception_v4.py
+│  │  inception_v4_test.py
+│  │  lenet.py
+│  │  mobilenet_v1.md
+│  │  mobilenet_v1.png
+│  │  mobilenet_v1.py
+│  │  mobilenet_v1_eval.py
+│  │  mobilenet_v1_test.py
+│  │  mobilenet_v1_train.py
+│  │  nets_factory.py
+│  │  nets_factory_test.py
+│  │  overfeat.py
+│  │  overfeat_test.py
+│  │  pix2pix.py
+│  │  pix2pix_test.py
+│  │  resnet_utils.py
+│  │  resnet_v1.py
+│  │  resnet_v1_test.py
+│  │  resnet_v2.py
+│  │  resnet_v2_test.py
+│  │  s3dg.py
+│  │  s3dg_test.py
+│  │  vgg.py
+│  │  vgg_test.py
+│  │  __init__.py
+│  │  
+│  ├─mobilenet					mobilenetV2定义处
+│  │      conv_blocks.py
+│  │      madds_top1_accuracy.png
+│  │      mnet_v1_vs_v2_pixel1_latency.png
+│  │      mobilenet.py
+│  │      mobilenet_example.ipynb
+│  │      mobilenet_v2.py
+│  │      mobilenet_v2_test.py
+│  │      README.md
+│  │      __init__.py
+│  │      
+│  ├─nasnet
+│  │      nasnet.py
+│  │      nasnet_test.py
+│  │      nasnet_utils.py
+│  │      nasnet_utils_test.py
+│  │      pnasnet.py
+│  │      pnasnet_test.py
+│  │      README.md
+│  │      __init__.py
+│  │      
+│  └─__pycache__
+│          cifarnet.cpython-36.pyc
+│          __init__.cpython-36.pyc
+│          
+├─preprocessing					载数据集输入训练前提供对数据的预处理
+│      cifarnet_preprocessing.py
+│      inception_preprocessing.py
+│      lenet_preprocessing.py
+│      preprocessing_factory.py			选择并返回预处理的函数
+│      vgg_preprocessing.py
+│      __init__.py
+│      
+└─scripts
+        export_mobilenet.sh
+        finetune_inception_resnet_v2_on_flowers.sh
+        finetune_inception_v1_on_flowers.sh
+        finetune_inception_v3_on_flowers.sh
+        finetune_resnet_v1_50_on_flowers.sh
+        train_cifarnet_on_cifar10.sh
+        train_lenet_on_mnist.sh
+        
+
+

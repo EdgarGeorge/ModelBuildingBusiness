@@ -1,0 +1,143 @@
+卷 Dec 的文件夹 PATH 列表
+卷序列号为 CA1B-7E18
+D:.
+│  BUILD
+│  download_and_convert_data.py
+│  eval_image_classifier.py
+│  export_inference_graph.py
+│  export_inference_graph_test.py
+│  file.txt
+│  README.md
+│  setup.py
+│  slim_walkthrough.ipynb
+│  train_image_classifier.py
+│  WORKSPACE
+│  __init__.py
+│  
+├─datasets
+│  │  build_imagenet_data.py
+│  │  cifar10.py
+│  │  dataset_factory.py
+│  │  dataset_utils.py
+│  │  download_and_convert_cifar10.py
+│  │  download_and_convert_flowers.py
+│  │  download_and_convert_imagenet.sh
+│  │  download_and_convert_mnist.py
+│  │  download_imagenet.sh
+│  │  flowers.py
+│  │  imagenet.py
+│  │  imagenet_2012_validation_synset_labels.txt
+│  │  imagenet_lsvrc_2015_synsets.txt
+│  │  imagenet_metadata.txt
+│  │  mnist.py
+│  │  preprocess_imagenet_validation_data.py
+│  │  process_bounding_boxes.py
+│  │  __init__.py
+│  │  
+│  └─flowers
+│          flowers_train_00000-of-00005.tfrecord
+│          flowers_train_00001-of-00005.tfrecord
+│          flowers_train_00002-of-00005.tfrecord
+│          flowers_train_00003-of-00005.tfrecord
+│          flowers_train_00004-of-00005.tfrecord
+│          flowers_validation_00000-of-00005.tfrecord
+│          flowers_validation_00001-of-00005.tfrecord
+│          flowers_validation_00002-of-00005.tfrecord
+│          flowers_validation_00003-of-00005.tfrecord
+│          flowers_validation_00004-of-00005.tfrecord
+│          labels.txt
+│          
+├─deployment
+│      model_deploy.py
+│      model_deploy_test.py
+│      __init__.py
+│      
+├─nets
+│  │  alexnet.py
+│  │  alexnet_test.py
+│  │  cifarnet.py
+│  │  cyclegan.py
+│  │  cyclegan_test.py
+│  │  dcgan.py
+│  │  dcgan_test.py
+│  │  i3d.py
+│  │  i3d_test.py
+│  │  i3d_utils.py
+│  │  inception.py
+│  │  inception_resnet_v2.py
+│  │  inception_resnet_v2_test.py
+│  │  inception_utils.py
+│  │  inception_v1.py
+│  │  inception_v1_test.py
+│  │  inception_v2.py
+│  │  inception_v2_test.py
+│  │  inception_v3.py
+│  │  inception_v3_test.py
+│  │  inception_v4.py
+│  │  inception_v4_test.py
+│  │  lenet.py
+│  │  mobilenet_v1.md
+│  │  mobilenet_v1.png
+│  │  mobilenet_v1.py
+│  │  mobilenet_v1_eval.py
+│  │  mobilenet_v1_test.py
+│  │  mobilenet_v1_train.py
+│  │  nets_factory.py
+│  │  nets_factory_test.py
+│  │  overfeat.py
+│  │  overfeat_test.py
+│  │  pix2pix.py
+│  │  pix2pix_test.py
+│  │  resnet_utils.py
+│  │  resnet_v1.py
+│  │  resnet_v1_test.py
+│  │  resnet_v2.py
+│  │  resnet_v2_test.py
+│  │  s3dg.py
+│  │  s3dg_test.py
+│  │  vgg.py
+│  │  vgg_test.py
+│  │  __init__.py
+│  │  
+│  ├─mobilenet
+│  │      conv_blocks.py
+│  │      madds_top1_accuracy.png
+│  │      mnet_v1_vs_v2_pixel1_latency.png
+│  │      mobilenet.py
+│  │      mobilenet_example.ipynb
+│  │      mobilenet_v2.py
+│  │      mobilenet_v2_test.py
+│  │      README.md
+│  │      __init__.py
+│  │      
+│  ├─nasnet
+│  │      nasnet.py
+│  │      nasnet_test.py
+│  │      nasnet_utils.py
+│  │      nasnet_utils_test.py
+│  │      pnasnet.py
+│  │      pnasnet_test.py
+│  │      README.md
+│  │      __init__.py
+│  │      
+│  └─__pycache__
+│          cifarnet.cpython-36.pyc
+│          __init__.cpython-36.pyc
+│          
+├─preprocessing
+│      cifarnet_preprocessing.py
+│      inception_preprocessing.py
+│      lenet_preprocessing.py
+│      preprocessing_factory.py
+│      vgg_preprocessing.py
+│      __init__.py
+│      
+└─scripts
+        export_mobilenet.sh
+        finetune_inception_resnet_v2_on_flowers.sh
+        finetune_inception_v1_on_flowers.sh
+        finetune_inception_v3_on_flowers.sh
+        finetune_resnet_v1_50_on_flowers.sh
+        train_cifarnet_on_cifar10.sh
+        train_lenet_on_mnist.sh
+        
